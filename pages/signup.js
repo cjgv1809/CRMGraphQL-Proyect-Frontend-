@@ -98,7 +98,7 @@ const SignUp = () => {
             >
               <div className="mb-4">
                 <label
-                  className="block text-gray-700 text-sm font-bold mb-2"
+                  className="block text-gray-700 text-sm font-bold mb-2 after:content-['*'] after:text-red-500 after:ml-1"
                   htmlFor="name"
                 >
                   Name
@@ -121,7 +121,7 @@ const SignUp = () => {
 
               <div className="mb-4">
                 <label
-                  className="block text-gray-700 text-sm font-bold mb-2"
+                  className="block text-gray-700 text-sm font-bold mb-2 after:content-['*'] after:text-red-500 after:ml-1"
                   htmlFor="lastName"
                 >
                   Last Name
@@ -141,9 +141,10 @@ const SignUp = () => {
                   </p>
                 )}
               </div>
+
               <div className="mb-4">
                 <label
-                  className="block text-gray-700 text-sm font-bold mb-2"
+                  className="block text-gray-700 text-sm font-bold mb-2 after:content-['*'] after:text-red-500 after:ml-1"
                   htmlFor="email"
                 >
                   Email
@@ -163,9 +164,10 @@ const SignUp = () => {
                   </p>
                 )}
               </div>
+
               <div className="mb-4">
                 <label
-                  className="block text-gray-700 text-sm font-bold mb-2"
+                  className="block text-gray-700 text-sm font-bold mb-2 after:content-['*'] after:text-red-500 after:ml-1"
                   htmlFor="password"
                 >
                   Password
@@ -185,9 +187,10 @@ const SignUp = () => {
                   </p>
                 )}
               </div>
+
               <input
                 type="submit"
-                className="bg-blue-500 hover:bg-blue-700 text-white w-full font-bold mt-4 py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer"
+                className="bg-blue-500 hover:bg-blue-400 text-white w-full font-bold mt-4 py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer"
                 value="Sign Up"
               />
             </form>
