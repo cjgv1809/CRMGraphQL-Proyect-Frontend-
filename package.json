@@ -9,8 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@apollo/client": "^3.6.9",
     "formik": "^2.2.9",
+    "graphql": "^16.6.0",
     "next": "12.2.5",
+    "node-fetch": "2.6.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "yup": "^0.32.11"

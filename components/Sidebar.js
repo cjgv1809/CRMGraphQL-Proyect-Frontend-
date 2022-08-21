@@ -14,8 +14,8 @@ const Sidebar = () => {
       <nav className="mt-5 list-none">
         <ul>
           <li
-            className={`p-2 mb-2 rounded-md font-semibold hover:bg-blue-400 ${
-              router.pathname === "/" && "bg-blue-800"
+            className={`p-2 mb-2 rounded-md font-semibold hover:bg-blue-700 ${
+              router.pathname === "/" && "bg-blue-500"
             }`}
           >
             <Link href="/">
@@ -23,8 +23,8 @@ const Sidebar = () => {
             </Link>
           </li>
           <li
-            className={`p-2 mb-2 rounded-md font-semibold hover:bg-blue-400 ${
-              router.pathname === "/orders" && "bg-blue-800"
+            className={`p-2 mb-2 rounded-md font-semibold hover:bg-blue-700 ${
+              router.pathname === "/orders" && "bg-blue-500"
             }`}
           >
             <Link href="/orders">
@@ -32,8 +32,8 @@ const Sidebar = () => {
             </Link>
           </li>
           <li
-            className={`p-2 mb-2 rounded-md font-semibold hover:bg-blue-400 ${
-              router.pathname === "/products" && "bg-blue-800"
+            className={`p-2 mb-2 rounded-md font-semibold hover:bg-blue-700 ${
+              router.pathname === "/products" && "bg-blue-500"
             }`}
           >
             <Link href="/products">

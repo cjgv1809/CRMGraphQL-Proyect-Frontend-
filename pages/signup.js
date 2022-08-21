@@ -1,9 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
+import { useRouter } from "next/router";
 import Layout from "../components/Layout";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useMutation, gql } from "@apollo/client";
+
+const NEW_USER = gql`
+  mutation newUser($input: UserInput!) {
+    newUser(input: $input) {
+      id
+      name
+      lastName
+      email
+    }
+  }
+`;
 
 const SignUp = () => {
+  // mutation to create a new user in the database. It works with [] instead of {} as useQuery
+  const [newUser] = useMutation(NEW_USER);
+  // message to display: success or error
+  const [message, setMessage] = useState(null);
+  // router to redirect to the login page
+  const router = useRouter();
+
+  // form validation
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -21,14 +42,52 @@ const SignUp = () => {
         .min(6, "Password must be at least 6 characters")
         .required("Password is required"),
     }),
-    onSubmit: (values) => {
-      console.log(values);
+    onSubmit: async (values) => {
+      const { name, lastName, email, password } = values;
+
+      try {
+        const { data } = await newUser({
+          variables: {
+            input: {
+              name,
+              lastName,
+              email,
+              password,
+            },
+          },
+        });
+        // user created successfully
+        setMessage(`User created successfully: ${data.newUser.name}`);
+        setTimeout(() => {
+          setMessage(null);
+          // redirect to the login page
+          router.push("/login");
+        }, 3000);
+      } catch (error) {
+        setMessage(error.message.replace("GraphQL error: ", ""));
+        setTimeout(() => {
+          setMessage(null);
+        }, 3000);
+      }
     },
   });
+
+  const showMessage = () => {
+    return (
+      <div
+        className={`py-2 px-3 w-full my-3 font-semibold max-w-sm mx-auto text-center text-white rounded ${
+          message === "User already exists" ? "bg-red-500" : "bg-green-500"
+        }`}
+      >
+        <p>{message}</p>
+      </div>
+    );
+  };
 
   return (
     <>
       <Layout>
+        {message && showMessage()}
         <h1 className="text-white text-2xl font-light text-center">Sign Up</h1>
 
         <div className="flex justify-center mt-5">
