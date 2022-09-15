@@ -6,7 +6,7 @@ const Sidebar = () => {
   const router = useRouter();
 
   return (
-    <aside className="bg-gray-800 sm:w-1/3 xl:w-1/5 sm:min-h-screen p-5">
+    <aside className="bg-gray-800 w-1/3 sm:w-1/3 xl:w-1/5 sm:min-h-screen p-5">
       <div>
         <p className="text-white text-2xl font-bold">CRM Clients</p>
       </div>
@@ -14,7 +14,7 @@ const Sidebar = () => {
       <nav className="mt-5 list-none">
         <ul>
           <li
-            className={`p-2 mb-2 rounded-md font-semibold hover:bg-blue-400 ${
+            className={`p-2 mb-2 rounded-md font-semibold cursor-pointer hover:bg-blue-400 ${
               router.pathname === "/" && "bg-blue-500"
             }`}
           >
@@ -23,7 +23,7 @@ const Sidebar = () => {
             </Link>
           </li>
           <li
-            className={`p-2 mb-2 rounded-md font-semibold hover:bg-blue-400 ${
+            className={`p-2 mb-2 rounded-md font-semibold cursor-pointer hover:bg-blue-400 ${
               router.pathname === "/orders" && "bg-blue-500"
             }`}
           >
@@ -32,7 +32,7 @@ const Sidebar = () => {
             </Link>
           </li>
           <li
-            className={`p-2 mb-2 rounded-md font-semibold hover:bg-blue-400 ${
+            className={`p-2 mb-2 rounded-md font-semibold cursor-pointer hover:bg-blue-400 ${
               router.pathname === "/products" && "bg-blue-500"
             }`}
           >

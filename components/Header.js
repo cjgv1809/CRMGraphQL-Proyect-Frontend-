@@ -14,6 +14,8 @@ const GET_USER = gql`
 `;
 
 const Header = () => {
+  // routing
+  const router = useRouter();
   // get user data from the database
   const { loading, error, data } = useQuery(GET_USER);
 
@@ -24,8 +26,6 @@ const Header = () => {
 
   const { name, lastName, email } = data.getUser;
 
-  const router = useRouter();
-
   const signOut = () => {
     localStorage.removeItem("token");
     router.push("/login");
@@ -34,12 +34,12 @@ const Header = () => {
   return (
     <header className="bg-gray-800 text-white p-4 mb-6 rounded">
       <div className="flex items-center justify-between font-semibold">
-        <p>
+        <p className="truncate">
           Hi, {name} {lastName}
         </p>
         <button
           onClick={signOut}
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-400"
+          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-400 whitespace-nowrap"
         >
           Sign Out
         </button>

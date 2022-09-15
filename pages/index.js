@@ -1,7 +1,8 @@
 import { useRouter } from "next/router";
-import Layout from "../components/Layout";
 import { useQuery, gql } from "@apollo/client";
 import Link from "next/link";
+import Layout from "../components/Layout";
+import Client from "../components/Client";
 
 const GET_CLIENTS_BY_SELLER = gql`
   query getClientsBySeller {
@@ -31,32 +32,32 @@ export default function Home() {
           <div className="flex justify-between items-center mb-4">
             <h1 className="text-2xl text-gray-800 font-light">Clients</h1>
             <Link href="/newclient">
-              <a className="bg-blue-500 text-white px-4 py-2 rounded font-semibold hover:bg-blue-400">
+              <a className="bg-blue-500 text-white px-4 py-2 rounded font-semibold hover:bg-blue-400 whitespace-nowrap">
                 Add New Client
               </a>
             </Link>
           </div>
 
-          <table className="table-auto shadow-md w-full max-w-7xl">
-            <thead className="bg-gray-800">
-              <tr className="text-gray-200">
-                <th className="px-4 py-2 font-bold">Name</th>
-                <th className="px-4 py-2 font-bold">Last Name</th>
-                <th className="px-4 py-2 font-bold">Company</th>
-                <th className="px-4 py-2 font-bold">Email</th>
-              </tr>
-            </thead>
-            <tbody className="bg-white">
-              {data.getClientsBySeller.map((client) => (
-                <tr key={client.id} className="text-center font-medium">
-                  <td className="border px-4 py-2">{client.name}</td>
-                  <td className="border px-4 py-2">{client.lastName}</td>
-                  <td className="border px-4 py-2">{client.company}</td>
-                  <td className="border px-4 py-2">{client.email}</td>
+          <div className="overflow-x-auto">
+            <table className="table-auto shadow-md w-full max-w-7xl">
+              <thead className="bg-gray-800">
+                <tr className="text-gray-200">
+                  <th className="px-4 py-2 font-bold">Name</th>
+                  <th className="px-4 py-2 font-bold">Last Name</th>
+                  <th className="px-4 py-2 font-bold">Company</th>
+                  <th className="px-4 py-2 font-bold">Email</th>
+                  <th colSpan={2} className="px-4 py-2 font-bold">
+                    Actions
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="bg-white">
+                {data.getClientsBySeller.map((client) => (
+                  <Client key={client.id} client={client} />
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </Layout>
     </div>

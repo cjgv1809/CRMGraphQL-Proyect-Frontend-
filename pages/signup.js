@@ -75,7 +75,7 @@ const SignUp = () => {
   const showMessage = () => {
     return (
       <div
-        className={`py-2 px-3 w-full my-3 font-semibold max-w-sm mx-auto text-center text-white rounded ${
+        className={`py-2 px-3 w-full my-3 font-semibold max-w-lg mx-auto text-center text-white rounded ${
           message === "User already exists" ? "bg-red-500" : "bg-green-500"
         }`}
       >
@@ -91,7 +91,7 @@ const SignUp = () => {
         <h1 className="text-white text-2xl font-light text-center">Sign Up</h1>
 
         <div className="flex justify-center mt-5">
-          <div className="w-full max-w-sm">
+          <div className="w-full max-w-lg">
             <form
               className="bg-white rounded shadow-md p-8 mb-4"
               onSubmit={formik.handleSubmit}
