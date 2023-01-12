@@ -31,7 +31,7 @@ const GET_CLIENTS_BY_SELLER = gql`
 `;
 
 const NewClient = () => {
-  // mutation to create a new client in the database.
+  // mutation to create a new client in the database and refresh the cache to update the list of clients
   const [newClient] = useMutation(NEW_CLIENT, {
     update(cache, { data: { newClient } }) {
       // get the object from the cache and update it

@@ -47,7 +47,6 @@ const Login = () => {
             },
           },
         });
-        console.log(data);
         // user authenticated successfully
         setMessage("Authenticating");
         // save token in local storage

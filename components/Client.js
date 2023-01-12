@@ -34,7 +34,9 @@ const Client = ({ client: { id, name, lastName, email, company } }) => {
       cache.writeQuery({
         query: GET_CLIENTS_BY_SELLER,
         data: {
-          getClientsBySeller: getClientsBySeller.filter((c) => c.id !== id),
+          getClientsBySeller: getClientsBySeller.filter(
+            (currentClient) => currentClient.id !== id
+          ),
         },
       });
     },
@@ -42,7 +44,7 @@ const Client = ({ client: { id, name, lastName, email, company } }) => {
 
   const confirmDeleteClient = (id) => {
     Swal.fire({
-      title: "Are you sure?",
+      title: "Are you sure you want to delete it?",
       text: "You won't be able to revert this",
       icon: "warning",
       showCancelButton: true,
@@ -81,15 +83,17 @@ const Client = ({ client: { id, name, lastName, email, company } }) => {
       <td className="border px-4 py-2">{lastName}</td>
       <td className="border px-4 py-2">{company}</td>
       <td className="border px-4 py-2">{email}</td>
-      <td className="border px-4 py-2 flex justify-between items-center">
+      <td className="border px-4 py-2 flex justify-center items-center gap-3">
         <button
-          className="flex items-center justify-center font-semibold bg-red-500 text-white text-xs px-4 py-2 rounded hover:bg-red-400 whitespace-nowrap"
+          type="button"
+          className="flex items-center justify-center font-semibold border border-red-500 text-red-500 text-sm px-4 py-2 rounded hover:bg-red-400 hover:text-white whitespace-nowrap"
           onClick={() => confirmDeleteClient(id)}
         >
           <TrashIcon className="mr-2 h-4 w-4" /> Delete Client
         </button>
         <button
-          className="flex items-center justify-center font-semibold bg-green-500 text-white text-xs px-4 py-2 rounded hover:bg-green-400 whitespace-nowrap"
+          type="button"
+          className="flex items-center justify-center font-semibold border border-blue-500 text-blue-500 text-sm px-4 py-2 rounded hover:bg-blue-400 hover:text-white whitespace-nowrap"
           onClick={() => editClient(id)}
         >
           <PencilIcon className="mr-2 h-4 w-4" /> Edit Client

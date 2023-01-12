@@ -46,6 +46,7 @@ const SignUp = () => {
       const { name, lastName, email, password } = values;
 
       try {
+        // data is the response from the server
         const { data } = await newUser({
           variables: {
             input: {
