@@ -40,13 +40,21 @@ export default function Home() {
 
           <div className="overflow-x-auto">
             <table className="table-auto shadow-md w-full max-w-7xl">
-              <thead className="bg-gray-800">
-                <tr className="text-gray-200">
-                  <th className="px-4 py-2 font-bold">Name</th>
-                  <th className="px-4 py-2 font-bold">Last Name</th>
-                  <th className="px-4 py-2 font-bold">Company</th>
-                  <th className="px-4 py-2 font-bold">Email</th>
-                  <th colSpan={2} className="px-4 py-2 font-bold">
+              <thead className="bg-gray-800 border-b">
+                <tr className="text-gray-200 text-left">
+                  <th scope="col" className="px-4 py-2 font-bold">
+                    Name
+                  </th>
+                  <th scope="col" className="px-4 py-2 font-bold">
+                    Last Name
+                  </th>
+                  <th scope="col" className="px-4 py-2 font-bold">
+                    Company
+                  </th>
+                  <th scope="col" className="px-4 py-2 font-bold">
+                    Email
+                  </th>
+                  <th scope="col" colSpan={2} className="px-4 py-2 font-bold">
                     Actions
                   </th>
                 </tr>

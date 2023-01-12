@@ -113,7 +113,9 @@ const NewClient = () => {
 
   return (
     <Layout>
-      <h1 className="text-2xl text-gray-800 font-light">New Client</h1>
+      <h1 className="text-3xl text-gray-800 font-light text-center mb-10">
+        Create New Client
+      </h1>
 
       {message && showMessage()}
       <div className="flex justify-center mt-5">
