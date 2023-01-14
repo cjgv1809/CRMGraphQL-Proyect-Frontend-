@@ -28,11 +28,14 @@ export default function Home() {
   return (
     <div>
       <Layout>
-        <div className="bg-white rounded min-h-max p-8 shadow-md">
-          <div className="flex justify-between items-center mb-4">
-            <h1 className="text-2xl text-gray-800 font-light">Clients</h1>
+        <div className="bg-white rounded min-h-max p-4 shadow-md">
+          <div className="sm:flex sm:justify-between items-center mb-4">
+            <h1 className="text-2xl text-gray-800 font-light mb-5 sm:mb-0">
+              Clients
+            </h1>
+
             <Link href="/newclient">
-              <a className="bg-blue-500 text-white px-4 py-2 rounded font-semibold hover:bg-blue-400 whitespace-nowrap">
+              <a className="bg-blue-500 text-white text-center px-4 py-2 w-full inline-block sm:block sm:w-auto rounded font-semibold hover:bg-blue-400 whitespace-nowrap">
                 Add New Client
               </a>
             </Link>

@@ -126,7 +126,7 @@ const Order = ({ order }) => {
 
   return (
     <div
-      className={`${statusColor} mt-5 bg-gray-200 rounded text-gray-700 p-4 md:grid md:grid-cols-3 md:gap-4 shadow-lg`}
+      className={`${statusColor} mt-5 bg-gray-200 rounded text-gray-700 p-4 md:grid md:grid-cols-3 md:gap-6 shadow-lg`}
     >
       <div className="flex flex-col">
         <h3 className="text-gray-800 font-bold">
@@ -136,33 +136,39 @@ const Order = ({ order }) => {
           </span>
         </h3>
         <div className="flex-grow">
-          {order.client.email && (
-            <div className="flex items-center">
-              <MailIcon className="h-4 w-4 mr-2" />
-              <p className="font-light text-gray-600">{order.client.email}</p>
-            </div>
-          )}
-          {order.client.phone && (
-            <div className="flex items-center">
-              <PhoneIcon className="h-4 w-4 mr-2" />
-              <p className="font-light text-gray-600">{order.client.phone}</p>
-            </div>
-          )}
+          <div className="flex flex-col flex-wrap">
+            {order.client.email && (
+              <div className="flex items-center flex-wrap">
+                <MailIcon className="hidden md:flex h-4 w-4 mr-2" />
+                <p className="font-light text-gray-600 text-sm md:text-base">
+                  {order.client.email}
+                </p>
+              </div>
+            )}
+            {order.client.phone && (
+              <div className="flex items-center flex-wrap">
+                <PhoneIcon className="hidden md:flex h-4 w-4 mr-2" />
+                <p className="font-light text-gray-600 text-sm md:text-base">
+                  {order.client.phone}
+                </p>
+              </div>
+            )}
+          </div>
         </div>
-        <h3 className="text-gray-800 font-bold">
+        <h3 className="flex flex-col mt-4 md:mt-0 sm:block text-gray-800 font-bold">
           Total to pay:{" "}
           <span className="text-gray-600 text-lg font-medium">
-            $ {order.total.toFixed(2)}
+            ${order.total.toFixed(2)}
           </span>
         </h3>
       </div>
 
       <div className="flex flex-col">
         <div className="flex-grow">
-          <h3 className="flex text-gray-800 font-bold">
+          <h3 className="flex flex-col mt-4 md:mt-0 md:flex-row text-gray-800 font-bold">
             Status:{" "}
             <select
-              className="ml-4 p-2 font-semibold rounded focus:outline-none"
+              className="mt-2 md:mt-0 md:ml-4 p-2 font-semibold rounded focus:outline-none"
               value={statusOrder}
               onChange={(e) => changeOrderStatus(e.target.value)}
             >
@@ -188,7 +194,7 @@ const Order = ({ order }) => {
         ))}
       </div>
 
-      <div className="flex flex-col items-end">
+      <div className="flex flex-col items-start md:items-end mt-4 md:mt-0">
         <div className="flex-grow">
           <h3 className="text-gray-800 font-bold">
             Order date:{" "}
@@ -197,16 +203,14 @@ const Order = ({ order }) => {
             </span>
           </h3>
         </div>
-        <div>
-          <button
-            type="button"
-            className="flex items-center justify-center font-semibold border border-red-500 text-red-500 text-sm px-4 py-2 rounded hover:bg-red-400 hover:text-white whitespace-nowrap"
-            onClick={() => confirmDeleteOrder()}
-          >
-            <TrashIcon className="mr-2 h-4 w-4" />
-            Delete Order
-          </button>
-        </div>
+        <button
+          type="button"
+          className="flex items-center justify-center font-semibold border border-red-500 text-red-500 text-sm px-4 py-2 mt-2 md:mt-0 w-full md:w-auto rounded hover:bg-red-400 hover:text-white whitespace-nowrap"
+          onClick={() => confirmDeleteOrder()}
+        >
+          <TrashIcon className="mr-2 h-4 w-4" />
+          Delete Order
+        </button>
       </div>
     </div>
   );

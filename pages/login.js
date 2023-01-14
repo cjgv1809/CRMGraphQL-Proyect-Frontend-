@@ -50,7 +50,9 @@ const Login = () => {
         // user authenticated successfully
         setMessage("Authenticating");
         // save token in local storage
-        localStorage.setItem("token", data.authenticateUser.token);
+        setTimeout(() => {
+          localStorage.setItem("token", data.authenticateUser.token);
+        }, 1000);
         setTimeout(() => {
           setMessage(null);
           // redirect to Home page
@@ -87,7 +89,7 @@ const Login = () => {
         <div className="flex justify-center mt-5">
           <div className="w-full max-w-lg">
             <form
-              className="bg-white rounded shadow-md p-8 mb-4"
+              className="bg-white rounded shadow-md p-6 mb-4"
               onSubmit={formik.handleSubmit}
             >
               <div className="mb-4">

@@ -105,7 +105,7 @@ const EditProduct = () => {
             {(props) => {
               return (
                 <form
-                  className="bg-white rounded shadow-md p-8 mb-4"
+                  className="bg-white rounded shadow-md p-6 mb-4"
                   onSubmit={props.handleSubmit}
                 >
                   <div className="mb-4">

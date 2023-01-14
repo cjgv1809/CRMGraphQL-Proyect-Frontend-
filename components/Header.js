@@ -1,4 +1,5 @@
 import React from "react";
+import { LogoutIcon } from "@heroicons/react/solid";
 import { useQuery, gql } from "@apollo/client";
 import { useRouter } from "next/router";
 
@@ -32,12 +33,19 @@ const Header = () => {
     router.push("/login");
   };
 
-  return (
-    <header className="bg-gray-800 text-white p-4 mb-6 rounded">
-      <div className="flex items-center justify-between font-semibold">
-        <p className="truncate capitalize">
-          Hi, {name} {lastName}
-        </p>
+  // render an icon to sign out for mobile devices and a button for desktop devices
+  const renderSignOut = () => {
+    if (window.innerWidth <= 480) {
+      return (
+        <div className="bg-gray-600 rounded p-2">
+          <LogoutIcon
+            className="h-6 w-6 cursor-pointer"
+            onClick={() => signOut()}
+          />
+        </div>
+      );
+    } else {
+      return (
         <button
           type="button"
           onClick={signOut}
@@ -45,6 +53,17 @@ const Header = () => {
         >
           Sign Out
         </button>
+      );
+    }
+  };
+
+  return (
+    <header className="bg-gray-800 text-white p-4 mb-6 rounded">
+      <div className="flex items-center justify-between font-semibold">
+        <p className="truncate capitalize">
+          Hi, {name} {lastName}
+        </p>
+        {renderSignOut()}
       </div>
     </header>
   );

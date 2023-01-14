@@ -121,7 +121,7 @@ const NewClient = () => {
       <div className="flex justify-center mt-5">
         <div className="w-full max-w-lg">
           <form
-            className="bg-white rounded shadow-md p-8 mb-4"
+            className="bg-white rounded shadow-md p-6 mb-4"
             onSubmit={formik.handleSubmit}
           >
             <div className="mb-4">

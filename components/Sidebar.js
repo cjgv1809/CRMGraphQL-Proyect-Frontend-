@@ -6,7 +6,9 @@ const Sidebar = () => {
   const router = useRouter();
 
   return (
-    <aside className="bg-gray-800 w-1/3 sm:w-1/3 xl:w-1/5 sm:min-h-screen p-5">
+    <aside className="bg-gray-800 w-1/3 sm:w-1/3 xl:w-1/5 sm:min-h-screen sm:block p-5 hidden">
+      {/* make a hamburger menu for mobile devices */}
+
       <div>
         <p className="text-white text-2xl font-bold">CRM Clients</p>
       </div>
@@ -38,6 +40,32 @@ const Sidebar = () => {
           >
             <Link href="/products">
               <a className="text-white">Products</a>
+            </Link>
+          </li>
+        </ul>
+      </nav>
+
+      <div className="sm:mt-5">
+        <p className="text-white text-2xl font-bold">Other options</p>
+      </div>
+      <nav className="mt-5 list-none">
+        <ul>
+          <li
+            className={`p-2 mb-2 rounded-md font-semibold cursor-pointer hover:bg-blue-400 ${
+              router.pathname === "/bestsellers" && "bg-blue-500"
+            }`}
+          >
+            <Link href="/bestsellers">
+              <a className="text-white">Best sellers</a>
+            </Link>
+          </li>
+          <li
+            className={`p-2 mb-2 rounded-md font-semibold cursor-pointer hover:bg-blue-400 ${
+              router.pathname === "/bestclients" && "bg-blue-500"
+            }`}
+          >
+            <Link href="/bestclients">
+              <a className="text-white">Best clients</a>
             </Link>
           </li>
         </ul>

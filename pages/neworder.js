@@ -132,7 +132,7 @@ const NewOrder = () => {
 
       {message && showMessage()}
 
-      <div className="bg-white rounded min-h-max p-8 shadow-md w-full max-w-lg mx-auto">
+      <div className="bg-white rounded min-h-max p-6 shadow-md w-full max-w-lg mx-auto">
         <div className="flex flex-col justify-center">
           <AssignClient />
           <hr className="my-5" />
