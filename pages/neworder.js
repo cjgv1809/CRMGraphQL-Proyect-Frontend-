@@ -17,6 +17,31 @@ const NEW_ORDER = gql`
   }
 `;
 
+const GET_ORDERS = gql`
+  query GetOrdersBySeller {
+    getOrdersBySeller {
+      id
+      client {
+        id
+        name
+        lastName
+        email
+        phone
+      }
+      order {
+        id
+        quantity
+        price
+        name
+      }
+      seller
+      status
+      total
+      createdAt
+    }
+  }
+`;
+
 const NewOrder = () => {
   // show message if there is not stock available for a product in the order
   const [message, setMessage] = useState(null);
@@ -39,7 +64,20 @@ const NewOrder = () => {
   };
 
   // Mutation to create new orders
-  const [newOrder] = useMutation(NEW_ORDER);
+  const [newOrder] = useMutation(NEW_ORDER, {
+    update(cache, { data: { newOrder } }) {
+      // get a copy of the object from the cache
+      const { getOrdersBySeller } = cache.readQuery({ query: GET_ORDERS });
+
+      // rewrite the cache (the cache never must be modified)
+      cache.writeQuery({
+        query: GET_ORDERS,
+        data: {
+          getOrdersBySeller: [...getOrdersBySeller, newOrder],
+        },
+      });
+    },
+  });
 
   const createNewOrder = async () => {
     // remove the extra data from the products object
