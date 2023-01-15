@@ -71,7 +71,7 @@ const BestSellers = () => {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="total" fill="#1F2937" />
+            <Bar dataKey="total" fill="#3B8292" />
           </BarChart>
         </ResponsiveContainer>
       </div>

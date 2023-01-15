@@ -58,7 +58,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-gray-800 text-white p-4 mb-6 rounded">
+    <header className="bg-gray-800 text-white p-4 mb-6 mt-14 sm:mt-0 rounded">
       <div className="flex items-center justify-between font-semibold">
         <p className="truncate capitalize">
           Hi, {name} {lastName}
