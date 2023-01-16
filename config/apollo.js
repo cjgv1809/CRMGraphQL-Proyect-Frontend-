@@ -3,7 +3,7 @@ import fetch from "node-fetch";
 import { setContext } from "apollo-link-context";
 
 const httpLink = createHttpLink({
-  uri: "https://crmgraphql-ly0f.onrender.com/",
+  uri: "https://guarded-sea-30589.herokuapp.com/",
   fetch,
 });
 
