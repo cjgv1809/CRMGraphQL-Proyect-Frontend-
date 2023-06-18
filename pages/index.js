@@ -23,7 +23,7 @@ export default function Home() {
 
   if (loading) return <p>Loading...</p>;
 
-  if (!data.getClientsBySeller) return router.push("/login");
+  if (!data.getClientsBySeller) return router.push("/signup");
 
   return (
     <div>
